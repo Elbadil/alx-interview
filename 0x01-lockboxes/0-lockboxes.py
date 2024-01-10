@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
             if key == i or key in box:
                 currentBox = boxes[i]
                 appendKeys(availableKeys, currentBox)
-                boxes.remove(currentBox)
+                openedBoxes.append(currentBox)
                 break
 
     for box in openedBoxes:
