@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defining a function called canUnlockAll"""
 
+
 def appendKeys(availableKeys, box):
     """appends box keys to the available keys list"""
     for key in box:
@@ -20,8 +21,8 @@ def canUnlockAll(boxes):
         for key in availableKeys:
             if key == i or key in box:
                 currentBox = boxes[i]
-                appendKeys(availableKeys, currentBox)
                 openedBoxes.append(currentBox)
+                appendKeys(availableKeys, box)
                 break
 
     for box in openedBoxes:
