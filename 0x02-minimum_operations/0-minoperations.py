@@ -9,14 +9,14 @@ def minOperations(n: int) -> int:
         return 0
 
     # Extracting prime factors from "n"
-    num = 2
+    divisor = 2
     operations = []
-    while num <= n:
-        if n % num == 0:
-            operations.append(num)
-            n /= num
+    while divisor <= n:
+        if n % divisor == 0:
+            operations.append(divisor)
+            n /= divisor
         else:
-            num += 1
+            divisor += 1
     if n > 1:
         operations.append(n)
 
