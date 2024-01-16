@@ -7,7 +7,6 @@ def minOperations(n: int) -> int:
     # If "n" is "1" there are no operations (0) to take
     if n == 1:
         return 0
-
     # Extracting prime factors from "n"
     divisor = 2
     operations = []
