@@ -28,11 +28,11 @@ for line in sys.stdin:
         file_size += size
         counter -= 1
     else:
-        print(f'File size: {file_size}')
+        print('File size: {}'.format(file_size))
         # Sorting the status_codes dictionary in ascending order
         stts_code_sorted = {
             key: val for key, val in sorted(status_codes.items(),
                                             key=lambda ele: ele[0])}
         for key in stts_code_sorted.keys():
-            print(f'{key}: {stts_code_sorted[key]}')
+            print('{}: {}'.format(key, stts_code_sorted[key]))
         counter = 10
