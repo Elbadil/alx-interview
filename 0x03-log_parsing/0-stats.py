@@ -8,6 +8,7 @@ status_codes = {}
 file_size = 0
 counter = 10
 i = 0
+line_read = 0
 
 
 def print_stats(f_size, dict):
@@ -24,16 +25,19 @@ def print_stats(f_size, dict):
 try:
     for line in sys.stdin:
         elements = line.split(' ')
-        size = int(elements[-1])
-        stat_code = elements[-2]
-        print(line)
+        try:
+            size = int(elements[-1])
+            stat_code = int(elements[-2])
+        except (IndexError, TypeError, ValueError):
+            continue
+        # print(line)
         # Checking the format of the line
         if len(elements) != 9:
             continue
         if i < counter:
             # setting status codes to the their counter value
             if stat_code not in status_codes:
-                if stat_code.isdigit() and int(stat_code) in psble_status_code:
+                if stat_code in psble_status_code:
                     status_codes[stat_code] = 1
                 else:
                     continue
