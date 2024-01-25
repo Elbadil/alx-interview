@@ -26,7 +26,7 @@ try:
         elements = line.split(' ')
         size = int(elements[-1])
         stat_code = elements[-2]
-        # print(line)
+        print(line)
         # Checking the format of the line
         if len(elements) != 9:
             continue
@@ -44,6 +44,7 @@ try:
         else:
             print_stats(file_size, status_codes)
             counter = 10
+    print_stats(file_size, status_codes)
 
 except KeyboardInterrupt:
     print_stats(file_size, status_codes)
