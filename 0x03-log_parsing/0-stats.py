@@ -3,7 +3,7 @@
 import sys
 
 
-possible_status_code = [200, 301, 400, 401, 403, 404, 405, 500]
+psble_status_code = [200, 301, 400, 401, 403, 404, 405, 500]
 status_codes = {}
 file_size = 0
 counter = 10
@@ -33,7 +33,7 @@ try:
         if i < counter:
             # setting status codes to the their counter value
             if stat_code not in status_codes:
-                if stat_code.isdigit() and int(stat_code) in possible_status_code:
+                if stat_code.isdigit() and int(stat_code) in psble_status_code:
                     status_codes[stat_code] = 1
                 else:
                     continue
