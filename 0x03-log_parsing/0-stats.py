@@ -25,7 +25,7 @@ try:
     for line in sys.stdin:
         elements = line.split(' ')
         size = int(elements[-1])
-        stat_code = int(elements[-2])
+        stat_code = elements[-2]
         # print(line)
         # Checking the format of the line
         if len(elements) != 9:
@@ -33,7 +33,7 @@ try:
         if i < counter:
             # setting status codes to the their counter value
             if stat_code not in status_codes:
-                if stat_code in possible_status_code:
+                if stat_code and stat_code.isdigit():
                     status_codes[stat_code] = 1
                 else:
                     continue
