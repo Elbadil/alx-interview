@@ -9,7 +9,7 @@ def validUTF8(data):
     number_of_next_bytes = 0
 
     for byte in data:
-        if byte >= 255:  # the number of bits is higher than 8
+        if byte > 0xFF:  # the number of bits is higher than 8
             return False
         if number_of_next_bytes == 0:
             if byte >> 3 == 0b11110:
