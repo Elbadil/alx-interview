@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Defining a function rotate_2d_matrix"""
-from typing import List
 
 
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+def rotate_2d_matrix(matrix):
     """rotates 2d matrix in-place"""
     temp = [[]]
     N = len(matrix) # = 3
