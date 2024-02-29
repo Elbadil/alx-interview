@@ -8,6 +8,7 @@ def makeChange(coins: List[int], total: int) -> int:
     if total <= 0:
         return 0
 
+    coins_copy = coins.copy()
     max_coin = max(coins)
     total_coins = 0
     total_value = 0
@@ -18,7 +19,11 @@ def makeChange(coins: List[int], total: int) -> int:
             try:
                 max_coin = max(coins)
             except ValueError:
-                break
+                if len(coins_copy) <= 1:
+                    break
+                coins_copy.remove(max(coins_copy))
+                coins = coins_copy.copy()
+                max_coin = max(coins)
         else:
             total_value += max_coin
         if total_value != total:
