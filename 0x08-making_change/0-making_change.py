@@ -8,35 +8,14 @@ def makeChange(coins: List[int], total: int) -> int:
     if total <= 0:
         return 0
 
-    coins_copy = coins.copy()
-    max_coin = max(coins)
+    coins.sort()
+    i = len(coins) - 1
     total_coins = 0
-    total_value = 0
 
-    while total_value != total:
-        # print(f'Before: {total_value}\n-----')
-        if total_value + max_coin > total:
-            # print(f'Cant double {max_coin}')
-            coins.remove(max_coin)
-            try:
-                max_coin = max(coins)
-                # print(f'Max coin is now: {max_coin}')
-            except ValueError:
-                # print()
-                # print('Oops we must refresh the list by removing the old max num')
-                # print('because the value we got is higher than total')
-                # print()
-                if len(coins_copy) <= 1:
-                    break
-                coins_copy.remove(max(coins_copy))
-                coins = coins_copy.copy()
-                max_coin = max(coins)
-                total_value = 0
-        else:
-            # print(f'{total_value} += {max_coin}')
-            total_value += max_coin
-            # print(f'After: {total_value}\n-----')
-        if total_value != total:
+    while i >= 0:
+        while total >= coins[i]:
+            total -= coins[i]
             total_coins += 1
+        i -= 1
 
-    return total_coins if total_value == total else -1
+    return total_coins if total == 0 else -1
