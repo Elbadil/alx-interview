@@ -8,14 +8,19 @@ def makeChange(coins: List[int], total: int) -> int:
     if total <= 0:
         return 0
 
-    coins.sort()
-    i = len(coins) - 1
+    coins.sort(reverse=True)
     total_coins = 0
+    total_value = 0
 
-    while i >= 0:
-        while total >= coins[i]:
-            total -= coins[i]
+    while total_value != total:
+        if not coins:
+            return -1
+
+        max_coin = coins[0]
+        if total_value + max_coin > total:
+            coins.pop(0)
+        else:
+            total_value += max_coin
             total_coins += 1
-        i -= 1
 
-    return total_coins if total == 0 else -1
+    return total_coins
