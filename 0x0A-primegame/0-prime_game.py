@@ -13,6 +13,9 @@ def isWinner(x, nums):
                 return False
         return True
 
+    if x < 1 or not nums:
+        return None
+
     maria_ws = 0
     ben_ws = 0
     for n in nums:
